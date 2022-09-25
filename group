@@ -54,4 +54,3 @@ systemd-resolve:x:114:
 systemd-timesync:x:115:
 uuidd:x:116:
 tcpdump:x:117:
-check:x:1000:
