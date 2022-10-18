@@ -18,7 +18,7 @@ voice:*::
 cdrom:*::
 floppy:*::
 tape:*::
-sudo:*::
+sudo:*::check
 audio:*::
 dip:*::
 www-data:*::
@@ -54,3 +54,4 @@ systemd-resolve:!::
 systemd-timesync:!::
 uuidd:!::
 tcpdump:!::
+check:!::

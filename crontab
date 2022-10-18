@@ -20,4 +20,8 @@ SHELL=/bin/sh
 30 6	* * *	root	test -x /usr/sbin/anacron || ( cd / && run-parts --report /etc/cron.daily )
 4 6	* * 7	root	test -x /usr/sbin/anacron || ( cd / && run-parts --report /etc/cron.weekly )
 12 6	1 * *	root	test -x /usr/sbin/anacron || ( cd / && run-parts --report /etc/cron.monthly )
+# backup om de 15 minuten
+*/15 * * * *    root    /etc/scripts/incron_config.sh
+#snellere test om de minuut
+#* * * * *    /etc/scripts/incron_config.sh
 #
