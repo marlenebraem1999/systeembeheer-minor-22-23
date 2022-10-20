@@ -24,4 +24,6 @@ SHELL=/bin/sh
 */15 * * * *    root    /etc/scripts/incron_config.sh
 #snellere test om de minuut
 #* * * * *    /etc/scripts/incron_config.sh
+#offline backup naar leia dagelijks om 00:00
+0 0 * * * root  /etc/scripts/backup_naar_leia.sh 
 #
