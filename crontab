@@ -26,4 +26,6 @@ SHELL=/bin/sh
 #* * * * *    /etc/scripts/incron_config.sh
 #offline backup naar leia dagelijks om 00:00
 0 0 * * * root  /etc/scripts/backup_naar_leia.sh 
+
+0 0 * * * root find /etc/mrt/* -maxdepth 0 -mmin +240 -exec rm -rf {} \;
 #
