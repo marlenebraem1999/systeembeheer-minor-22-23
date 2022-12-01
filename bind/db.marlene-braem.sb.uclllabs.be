@@ -18,4 +18,5 @@ $TTL	300	;time to life op korte 5min gezet
 @	IN	A	193.191.177.184
 ns	IN	A	193.191.177.184
 www	IN	A	193.191.177.184
+test	IN	A	193.191.177.254
 ;
