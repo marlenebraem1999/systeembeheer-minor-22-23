@@ -3,7 +3,7 @@
 ;
 $TTL	300	;time to life op korte 5min gezet
 @	IN	SOA	ns.marlene-braem.sb.uclllabs.be root.marlene-braem.sb.uclllabs.be (
-			      2		; Serial
+			      3		; Serial
 			 300		; Refresh
 			 300		; Retry
 			 300		; Expire
