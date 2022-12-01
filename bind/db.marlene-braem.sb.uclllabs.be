@@ -3,13 +3,15 @@
 ;
 $TTL	300	;time to life op korte 5min gezet
 @	IN	SOA	ns.marlene-braem.sb.uclllabs.be root.marlene-braem.sb.uclllabs.be (
-			      3		; Serial
+			      4		; Serial
 			 300		; Refresh
 			 300		; Retry
 			 300		; Expire
 			 300  )	; Negative Cache TTL
-;
+;slaves
 @	IN	NS	ns.marlene-braem.sb.uclllabs.be.
+@	IN	NS	ns1.uclllabs.be
+@	IN	NS	ns2.uclllabs.be
 @	IN	A	127.0.0.1
 @	IN	AAAA	::1
 ;
