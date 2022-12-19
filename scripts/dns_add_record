@@ -1,0 +1,11 @@
+#!/bin/bash
+
+# check if running as root
+if [ "$EUID" -ne 0 ]
+  then echo "You are not root, please run as root!"
+  exit 0
+fi
+
+
+#restart bind9
+systemctl restart bind9
