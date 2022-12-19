@@ -11,3 +11,7 @@ zone "marlene-braem.sb.uclllabs.be" {
 
 	allow-transfer {193.191.176.254; 193.191.177.4; 193.191.177.245; }; 
 };
+
+// beschreven bij dns
+include "/etc/bind/named.conf.mrt-zones";
+
