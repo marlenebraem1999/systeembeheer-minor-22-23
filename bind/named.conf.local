@@ -1,3 +1,4 @@
+
 //
 // Do any local configuration here
 //
@@ -13,5 +14,5 @@ zone "marlene-braem.sb.uclllabs.be" {
 };
 
 // beschreven bij dns
-include "/etc/bind/named.conf.mrt-zones";
+//include "/etc/bind/named.conf.mrt-zones";
 

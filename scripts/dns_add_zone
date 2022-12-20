@@ -1,0 +1,60 @@
+
+#!/bin/bash
+
+# check if running as root
+if [ "$EUID" -ne 0 ]
+  then echo "You are not root, please run as root"
+  exit 0
+fi
+
+# get subdomain
+zone=$1
+
+FILENAME='db.'"$zone"'.marlene-braem.sb.uclllabs.be'
+FILE=/etc/bind/zones/$FILENAME
+if test -f "$FILE"; then
+        echo 'this zone '"$1"' already exists, try another!'
+else
+
+# append subdomain to named.conf.local
+input="/etc/bind/named.conf.local"
+echo 'zone "'"$zone"'.marlene-braem.sb.uclllabs.be" {
+        type master;
+        file "/etc/bind/zones/'"$FILENAME"'";
+};
+' >> $input
+
+# create zonefile
+output=/etc/bind/zones/$FILENAME
+echo ' Creating a file with name: '"$FILENAME"
+echo '
+$TTL	300
+$ORIGIN '"$zone"'.marlene-braem.sb.uclllabs.be.
+@	IN	SOA	ns.'"$zone"'.marlene-braem.sb.uclllabs.be. root.marlene-braem.sb.uclllabs.be. (
+			    13		; Serial
+			    300		; Refresh
+			    300		; Retry
+			2419200		; Expire
+			    300)	; Negative Cache TTL
+; Name servers
+@       IN      NS      ns.marlene-braem.sb.uclllabs.be.
+@	IN	NS	ns.'"$zone"'.marlene-braem.sb.uclllabs.be.
+; A records
+@	IN	A	193.191.177.184
+ns	IN	A	193.191.177.184
+' >> $output
+
+# update db.marlene-braem
+echo "$zone"'       IN      NS      ns.marlene-braem.sb.uclllabs.be.' >> /etc/bind/zones/db.marlene-braem.sb.uclllabs.be
+
+# increase serial of db file 
+old=$(grep "Serial" /etc/bind/zones/db.marlene-braem.sb.uclllabs.be | tr -s [:blank:] | cut -d ' ' -f 2)
+new=$((old + 1))
+sed -i "s/.*Serial.*/\t\t     $new ;Serial/g" /etc/bind/zones/db.marlene-braem.sb.uclllabs.be
+
+# restart bind9
+echo 'restart bind9'
+systemctl restart bind9
+
+echo 'end script'
+fi
