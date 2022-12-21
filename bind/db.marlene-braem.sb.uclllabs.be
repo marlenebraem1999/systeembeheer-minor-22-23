@@ -4,7 +4,7 @@
 $TTL	300	;time to life op korte 5min gezet
 $ORIGIN marlene-braem.sb.uclllabs.be.	;base domain name
 @	IN	SOA	ns.marlene-braem.sb.uclllabs.be. root.marlene-braem.sb.uclllabs.be. (
-			      14		; Serial
+			      41		; Serial
 			 300		; Refresh
 			 300		; Retry
 			 300		; Expire
@@ -23,6 +23,8 @@ $ORIGIN marlene-braem.sb.uclllabs.be.	;base domain name
 	IN	A	193.191.177.184
 ns	IN	A	193.191.177.184
 www	IN	A	193.191.177.184
+www1	IN	A	193.191.177.184
+www2	IN	A	193.191.177.184
 
 ;test in A record
 test	IN	A	193.191.177.254
