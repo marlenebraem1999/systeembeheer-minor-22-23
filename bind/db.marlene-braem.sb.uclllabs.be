@@ -1,10 +1,12 @@
+
+
 ;
 ; BIND data file for local loopback interface
 ;
 $TTL	300	;time to life op korte 5min gezet
 $ORIGIN marlene-braem.sb.uclllabs.be.	;base domain name
 @	IN	SOA	ns.marlene-braem.sb.uclllabs.be. root.marlene-braem.sb.uclllabs.be. (
-			      41		; Serial
+			  55		; Serial
 			 300		; Refresh
 			 300		; Retry
 			 300		; Expire
@@ -20,14 +22,21 @@ $ORIGIN marlene-braem.sb.uclllabs.be.	;base domain name
 ;
 
 ;It resolves ns.slimme-rik.sb.uclllabs.be and www.slimme-rik.sb.uclllabs.be, both to your own IP address.
-	IN	A	193.191.177.184
+@	IN	A	193.191.177.184
 ns	IN	A	193.191.177.184
 www	IN	A	193.191.177.184
 www1	IN	A	193.191.177.184
 www2	IN	A	193.191.177.184
+secure	IN	A	193.191.177.184
+secure	IN	AAAA	fe80::7cb3:37ff:fea4:966e
+supersecure	IN	A	193.191.177.184
+supersecure	IN	AAAA	fe80::7cb3:37ff:fea4:966e
+
 
 ;test in A record
 test	IN	A	193.191.177.254
-;
+
+;acrme records van certbot voor https
+_acme-challenge.secure.marlene-braem.sb.uclllabs.be.   IN  TXT  "ot_sevKeNJ8G6shCb3BXX0vmCKP08gBE6hjS-wsgYDA"
 
 
