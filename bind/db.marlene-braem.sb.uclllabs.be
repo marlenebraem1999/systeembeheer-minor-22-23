@@ -6,7 +6,7 @@
 $TTL	300	;time to life op korte 5min gezet
 $ORIGIN marlene-braem.sb.uclllabs.be.	;base domain name
 @	IN	SOA	ns.marlene-braem.sb.uclllabs.be. root.marlene-braem.sb.uclllabs.be. (
-			  55		; Serial
+			  56		; Serial
 			 300		; Refresh
 			 300		; Retry
 			 300		; Expire
@@ -38,5 +38,5 @@ test	IN	A	193.191.177.254
 
 ;acrme records van certbot voor https
 _acme-challenge.secure.marlene-braem.sb.uclllabs.be.   IN  TXT  "ot_sevKeNJ8G6shCb3BXX0vmCKP08gBE6hjS-wsgYDA"
-
+_acme-challenge.supersecure.marlene-braem.sb.uclllabs.be.	IN	TXT	"mBw510wmArKLaWZegOeXZv6mxYYex7U1x16Ii1PnpaM"
 
